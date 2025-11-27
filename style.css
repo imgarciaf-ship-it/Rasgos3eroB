@@ -1,0 +1,627 @@
+/* Variables de color para el estilo Kawaii, transformado a Azules y Grises */
+:root {
+    /* * Paleta de Colores Azules y Grises */
+    --color-main-pink: #a0d2eb;     /* Base Rosa (ahora Azul Pastel Medio) */
+    --color-light-pink: #d8f3ff;    /* Base Rosa Claro (ahora Azul muy claro/Celeste) */
+    --color-main-blue: #55b7d6;     /* Base Azul Pastel (ahora Azul Principal Fuerte) */
+    --color-light-blue: #e8faff;    /* Base Azul Claro (Fondo del marco) */
+    --color-main-yellow: #cccccc;   /* Base Amarillo Pastel (ahora Gris Pastel Medio) */
+    --color-light-yellow: #f0f0f0;  /* Base Amarillo Claro (ahora Gris muy claro) */
+    --color-main-green: #90a4ae;    /* Base Verde Pastel (ahora Gris Azulado Medio) */
+    
+    --color-border-dark: #78909c;   /* Borde oscuro para elementos -> Gris Pizarra Oscuro */
+    --color-text-dark: #37474f;     /* Texto oscuro suave -> Gris Azulado Oscuro */
+    --color-text-subtle: #90a4ae;   /* Texto más sutil -> Gris Azulado Sutil */
+    
+    --color-positive: #2ecc71;      /* Se mantiene el verde para POSITIVO */
+    --color-negative: #e74c3c;      /* Se mantiene el rojo para NEGATIVO */
+    
+    --font-kawaii: 'Comic Sans MS', cursive, sans-serif;
+    --font-cute: 'Pacifico', cursive;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-kawaii);
+    background-color: var(--color-light-yellow); 
+    color: var(--color-text-dark);
+    padding: 15px;
+    line-height: 1.4;
+    /* Fondo con patrones de puntos */
+    background-image: radial-gradient(var(--color-main-yellow) 10%, transparent 10%),
+                      radial-gradient(var(--color-main-pink) 10%, transparent 10%);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+}
+
+/* ------------------------------------ */
+/* Global: Contenedor Principal */
+/* ------------------------------------ */
+.screen {
+    display: none;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--color-light-blue); /* Fondo azul muy claro principal */
+    border: 3px solid var(--color-main-blue); /* Borde azul fuerte */
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    min-height: 90vh;
+    padding: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Orejas decorativas */
+.screen::before,
+.screen::after {
+    content: '';
+    position: absolute;
+    top: -35px;
+    width: 80px;
+    height: 70px;
+    background-color: var(--color-light-blue);
+    border: 3px solid var(--color-main-blue);
+    border-radius: 50% 50% 0 0;
+    z-index: -1;
+}
+
+.screen::before {
+    left: 15%;
+    border-right: none;
+    transform: rotate(-10deg);
+}
+
+.screen::after {
+    right: 15%;
+    border-left: none;
+    transform: rotate(10deg);
+}
+
+/* Contenedores de contenido (simulan el "papel" interior) */
+.content-area {
+    background-color: var(--color-light-pink); /* Fondo azul claro para el área de contenido */
+    border: 2px solid var(--color-main-pink); /* Borde azul pastel medio */
+    border-radius: 15px;
+    padding: 15px;
+    min-height: calc(100% - 20px);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ------------------------------------ */
+/* Top Banner/Header */
+/* ------------------------------------ */
+.top-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-main-pink);
+    border: 2px solid var(--color-border-dark);
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.top-banner .comms-status {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--color-border-dark);
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.top-banner .title-here {
+    font-family: var(--font-cute);
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.top-banner .icon-group span {
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 10px;
+}
+
+/* ------------------------------------ */
+/* Welcome Banner */
+/* ------------------------------------ */
+.welcome-banner {
+    background-color: var(--color-light-yellow);
+    border: 2px solid var(--color-main-yellow);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+    min-height: 120px;
+}
+
+.welcome-banner p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.welcome-banner .sub-text {
+    font-size: 0.85rem;
+    color: var(--color-text-subtle);
+}
+
+/* Placeholders de decoración */
+.welcome-banner::before,
+.welcome-banner::after {
+    content: '';
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+}
+
+
+/* ------------------------------------ */
+/* Navigation Tabs */
+/* ------------------------------------ */
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.nav-tabs a {
+    background-color: var(--color-main-green); /* Gris azulado medio */
+    border: 2px solid var(--color-border-dark);
+    border-radius: 10px;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+    box-shadow: 0 3px 0 var(--color-border-dark);
+    position: relative;
+    top: 0;
+}
+
+.nav-tabs a:hover {
+    background-color: #6a8290;
+    top: 1px;
+    box-shadow: 0 2px 0 var(--color-border-dark);
+}
+
+.nav-tabs a span {
+    margin-right: 5px;
+}
+
+/* ------------------------------------ */
+/* Profile Info / Memo Sections */
+/* ------------------------------------ */
+.profile-and-memo-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+@media (min-width: 700px) {
+    .profile-and-memo-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.profile-info-box {
+    background-color: var(--color-light-pink);
+    border: 2px solid var(--color-main-pink);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.profile-info-box h3 {
+    font-family: var(--font-cute);
+    font-size: 1.3rem;
+    color: var(--color-text-dark);
+    margin-bottom: 10px;
+}
+
+/* Contenedor de la lista de estudiantes */
+.student-list-section {
+    background-color: white;
+    border: 2px solid var(--color-border-dark);
+    border-radius: 10px;
+    padding: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.student-list-section h2 {
+    font-size: 1.2rem;
+    color: var(--color-text-dark);
+    margin-bottom: 10px;
+    border-bottom: 1px dashed var(--color-border-dark);
+    padding-bottom: 5px;
+}
+
+.student-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    margin: 6px 0;
+    background-color: var(--color-light-yellow);
+    border: 1px dashed var(--color-main-yellow);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.student-card:hover {
+    background-color: #e0e0e0;
+}
+
+.student-name {
+    font-weight: bold;
+}
+
+.student-trait {
+    font-size: 0.85rem;
+    color: var(--color-text-dark);
+    font-weight: bold;
+}
+
+/* ------------------------------------ */
+/* Pantalla de Perfil */
+/* ------------------------------------ */
+#profile-screen .content-area {
+}
+
+.profile-header {
+    background-color: var(--color-main-pink);
+    border: 2px solid var(--color-border-dark);
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.back-btn {
+    background-color: white;
+    border: 2px solid var(--color-border-dark);
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--color-text-dark);
+    transition: background-color 0.2s;
+    box-shadow: 0 3px 0 var(--color-border-dark);
+    position: relative;
+    top: 0;
+}
+
+.back-btn:hover {
+    background-color: #f0f0f0;
+    top: 1px;
+    box-shadow: 0 2px 0 var(--color-border-dark);
+}
+
+#profile-title {
+    font-family: var(--font-cute);
+    font-size: 1.8rem;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.profile-content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+@media (min-width: 700px) {
+    .profile-content-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.trait-section {
+    background-color: var(--color-light-yellow);
+    border: 2px solid var(--color-main-yellow);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.trait-header {
+    font-family: var(--font-cute);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--color-text-dark);
+}
+
+.hearts {
+    color: var(--color-negative);
+    margin-left: 8px;
+    font-size: 1.2rem;
+}
+
+/* Barra de Vida */
+.trait-bar-container {
+    background-color: var(--color-light-pink);
+    height: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+    border: 2px solid var(--color-main-pink);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.trait-bar {
+    height: 100%;
+    background-color: var(--color-positive);
+    transition: width 0.5s ease-in-out;
+}
+
+.trait-bar[style*="width: 0%"] {
+    background-color: var(--color-negative);
+}
+
+.trait-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: var(--color-text-dark);
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
+    z-index: 10;
+    font-size: 1rem;
+}
+
+.max-trait-message {
+    font-size: 0.9rem;
+    color: var(--color-text-subtle);
+    margin-bottom: 20px;
+}
+
+/* ------------------------------------ */
+/* Botones de Penalización (NUEVOS ESTILOS) */
+/* ------------------------------------ */
+.action-buttons-penalties {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columnas */
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.action-btn {
+    padding: 15px 10px;
+    border: 2px solid var(--color-border-dark);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.2s, top 0.1s;
+    box-shadow: 0 4px 0 var(--color-border-dark);
+    position: relative;
+    top: 0;
+    
+    /* Estilo base de penalización */
+    background-color: var(--color-main-blue); 
+    color: white; 
+    line-height: 1.2;
+}
+
+/* Colores de Fondo para diferenciar ligeramente los tipos de penalización */
+.penalty-050 {
+    background-color: #4a86b3; /* Azul medio */
+}
+.penalty-070 {
+    background-color: #78909c; /* Gris azulado/verde original */
+}
+.penalty-025 {
+    background-color: #a0d2eb; /* Azul Pastel más claro */
+}
+
+
+.action-btn:hover {
+    filter: brightness(1.1);
+}
+
+.action-btn:active {
+    top: 2px;
+    box-shadow: 0 2px 0 var(--color-border-dark);
+}
+
+.action-btn i {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+
+.info-sidebar {
+    background-color: var(--color-light-pink);
+    border: 2px solid var(--color-main-blue);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.info-sidebar h3 {
+    font-family: var(--font-cute);
+    font-size: 1.2rem;
+    color: var(--color-text-dark);
+    margin-bottom: 10px;
+}
+
+.info-sidebar ul {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.info-sidebar ul li {
+    background-color: #fff;
+    border: 1px dashed var(--color-main-blue);
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.important-note {
+    background-color: var(--color-light-yellow);
+    border: 2px dashed var(--color-main-pink);
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    color: var(--color-text-subtle);
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+    margin-top: auto;
+}
+
+.important-note h3 {
+    font-family: var(--font-cute);
+    color: var(--color-main-blue);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+
+/* ------------------------------------ */
+/* Responsividad */
+/* ------------------------------------ */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .screen {
+        min-height: 95vh;
+        padding: 5px;
+        border-radius: 15px;
+    }
+
+    .screen::before,
+    .screen::after {
+        top: -25px;
+        width: 60px;
+        height: 50px;
+    }
+
+    .content-area {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .top-banner {
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 8px;
+    }
+    .top-banner .title-here {
+        font-size: 1.2rem;
+    }
+    .top-banner .icon-group span {
+        font-size: 1.2rem;
+    }
+
+    .welcome-banner {
+        padding: 15px;
+        min-height: 100px;
+        font-size: 1rem;
+    }
+
+    .nav-tabs {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .nav-tabs a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .profile-and-memo-grid,
+    .profile-content-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 8px 10px;
+    }
+    #profile-title {
+        font-size: 1.5rem;
+        text-align: left;
+    }
+    .back-btn {
+        width: 100%;
+        text-align: center;
+        padding: 6px 10px;
+    }
+
+    .trait-section {
+        padding: 15px;
+    }
+    .trait-header {
+        font-size: 1.3rem;
+    }
+    
+    .action-buttons-penalties {
+        grid-template-columns: 1fr; /* Una sola columna en móviles pequeños */
+        gap: 8px;
+    }
+    .action-btn {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+    .action-btn i {
+        display: inline-block;
+        margin-right: 5px;
+        font-size: 1em;
+    }
+    
+    .info-sidebar h3 {
+        font-size: 1.1rem;
+    }
+    .info-sidebar ul li {
+        font-size: 0.8rem;
+    }
+    .important-note {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+    .important-note h3 {
+        font-size: 1rem;
+    }
+}

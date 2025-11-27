@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Rasgos Kawaii</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <div id="home-screen" class="screen active">
+        <div class="content-area">
+ <div class="top-banner">
+                <span class="comms-status">Comms: BIENVENIDOS</span>
+                <span class="title-here">Gestor de Rasgos</span>
+                <div class="icon-group">
+                    <button id="reset-all-btn" class="icon-btn reset-btn" title="Reiniciar todos los rasgos">
+                        <span class="fas fa-undo-alt"></span>
+                    </button>
+                    <span class="fas fa-bell"></span>
+                    <span class="fas fa-cog"></span>
+                </div>
+            </div>
+            </div>
+
+            <div class="welcome-banner">
+                <p>¡Toca poner rasgos!</p>
+                <div class="sub-text">Administración de Rasgos para 3ero 'B'</div>
+            </div>
+            <div class="nav-tabs">
+                <a href="#" id="global-penalty-btn">
+                    <span class="fas fa-exclamation-triangle"></span> Penalidad Global (-0.70)
+                </a>
+                </div>
+
+            <div class="profile-and-memo-grid">
+                
+                <div class="student-list-section">
+                    <h2>Lista de Estudiantes (3ero 'B')</h2>
+                    <div id="student-list">
+                        </div>
+                </div>
+
+                <div class="info-sidebar">
+                    <div>
+                        <h3>Negative Things:</h3>
+                        <ul>
+                            <li><i class="fas fa-tools"></i> Mal Uso del Vocabulario</li>
+                            <li><i class="fas fa-cog"></i> Mala Vestimenta</li>
+                            <li><i class="fas fa-hat-wizard"></i> Uso del celular en clase</li>
+                        </ul>
+                        <h3>Positive Things:</h3>
+                        <ul>
+                            <li><i class="fas fa-mobile-alt"></i> Respetuoso</li>
+                            <li><i class="fas fa-laptop-code"></i> Participativo</li>
+                
+                        </ul>
+                    </div>
+                    <div class="important-note">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Nota Importante:</h3>
+                        <p>Los puntos sólo pueden ser disminuidos. Utiliza los botones de penalización.</p>
+                         <p>Creado, programado y diseñado por: Isabella García.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="profile-screen" class="screen">
+        <div class="content-area">
+            <div class="profile-header">
+                <button id="back-button" class="back-btn"><i class="fas fa-arrow-left"></i> Volver</button>
+                <span id="profile-title">Perfil de Estudiante</span>
+            </div>
+
+            <div class="profile-content-grid">
+                <div class="trait-section">
+                    <h2 class="trait-header" id="profile-name">Nombre del Estudiante</h2>
+                    
+                    <div class="trait-bar-container">
+                        <div id="trait-bar" class="trait-bar"></div>
+                        <span id="trait-value" class="trait-value">20/20</span>
+                    </div>
+
+                    <p class="max-trait-message">Puntos de vida actuales.</p>
+                    
+                    <div class="action-buttons-penalties">
+                        <button class="action-btn penalty-050" data-penalty="groserias">
+                            <i class="fas fa-comment-slash"></i> Groserías (-0.50)
+                        </button>
+                        <button class="action-btn penalty-070" data-penalty="falta">
+                            <i class="fas fa-calendar-times"></i> Falta Injustificada (-0.70)
+                        </button>
+                        <button class="action-btn penalty-070" data-penalty="disciplina">
+                            <i class="fas fa-hand-paper"></i> Disciplina (-0.70)
+                        </button>
+                        <button class="action-btn penalty-025" data-penalty="vestimenta">
+                            <i class="fas fa-tshirt"></i> Vestimenta Inadecuada (-0.25)
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="info-sidebar">
+                    <div>
+                        <h3>Notas Rápidas</h3>
+                        <ul>
+                            <li><i class="fas fa-paw"></i> Última falta: 25/11/2025</li>
+                            <li><i class="fas fa-star"></i> Puntos Perdidos Hoy: 0</li>
+                            <li><i class="fas fa-trophy"></i> Meta: 10 puntos de vida.</li>
+                        </ul>
+                        <h3>Detalles</h3>
+                        <ul>
+                            <li><i class="fas fa-user-tag"></i> Rasgo Principal: Enérgico</li>
+                            <li><i class="fas fa-graduation-cap"></i> Grado: 3ro 'B'</li>
+                        </ul>
+                    </div>
+                    <div class="important-note">
+                        <h3><i class="fas fa-heartbeat"></i> Estado de Vida</h3>
+                        <p>Cuando la vida llega a 0, se aplica una consecuencia mayor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
